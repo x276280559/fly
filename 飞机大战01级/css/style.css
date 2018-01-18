@@ -4,7 +4,7 @@
 	margin: 0;
 	padding: 0;
 }
-
+body{overflow: hidden;}
 #box {
 	width: 100%;
 	height: 100vh;
@@ -18,6 +18,18 @@
 	position: absolute;left:50%;bottom: 0px;
 }
 .ZiDan{
-	width:7px;height:18px;background:url(../img/img/bullet.png);z-index: 10;
+	width:7px;height:18px;background:url(../img/img/bullet.png);
+	position: absolute;left:0px;top:0px;
+}
+.Enemy{
+	width:59px;height:36px;background:url(../img/img/plain1.png);
+	position: absolute;left:0px;top:0px;
+}
+.Enemy2{
+	width:70px;height:92px;background:url(../img/img/plain2.png);
+	position: absolute;left:0px;top:0px;
+}
+.Enemy3{
+	width:165px;height:256px;background:url(../img/img/plain3.png);
 	position: absolute;left:0px;top:0px;
 }

@@ -15,6 +15,27 @@ var Bg ={
 		
 		//飞机开火
   		this.Fly.kaihuo()
+  		//创建敌人
+         var e1= new Enemy1("<div></div>")
+		 var e2= new Enemy2("<div></div>")
+		 var e3= new Enemy3("<div></div>")
+		setInterval(function(){
+			var mather ="";
+			var M =Math.floor(Math.random()*4);
+			//console.log(M)
+			switch (M){
+				case 1:
+					e1
+					break;
+				case 2:
+					e2
+					break;
+				case 3:
+					e3
+					break;
+			}
+			
+		},10)
 	},
 
 	bgmove:function(){

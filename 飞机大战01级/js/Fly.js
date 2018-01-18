@@ -74,6 +74,6 @@ Fly.prototype.kaihuo = function(){
 		var b = selfs.ele.position().top-18;
 		//console.log(b)
 		new ZiDan(a,b)
-	},200)
+	},100)
 	
 }
