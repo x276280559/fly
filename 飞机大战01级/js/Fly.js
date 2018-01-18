@@ -1,70 +1,79 @@
+ 
 
-
-//创建自己的飞机
-var Bg ={
-	//属性
-	bgimg:$("#box"),
-	//方法：
-	start:function(){  //移动背景盒子
-		//定义个变量自己
-		var self = this;
-		//console.log(self)
-		//用定位移动背景盒子
-		this.bgimg.animate({"background-position-y":"-230%"},5000,"linear",function(){      //linear
-			self.bgimg.css({"background-position-y":"0%"})
-			self.start()
-		})  //回调反复走
-	}
+//第二步 创建玩家  飞机
+function Fly (){
+	this.ele =$("<div></div>");    //	添加节点，创建飞机
+	this.ele.addClass("Fly");
+	this.ele.appendTo("#box");
+	this.FlyMove()
 }
-//飞机移动鼠标操作：方法
-var Fly ={
-	self:$("#self"),
-	
-	MoveSelf:function(){
-		//console.log(this)
-		Fly.self.mousedown(function(e){  //鼠标按下
-			var zji =this;
-			//console.log(zji)
-			var left=e.offsetX;
-			var top=e.offsetY;
-			$(document).mousemove(function(e){//鼠标移动
-			
-				//console.log(this)
-				var l =e.clientX-left;
-				var t =e.clientY-top;
-//					console.log(l)
-//					console.log(t)
-				var lmax = $("body").width();
-				var lzji =$(zji).width();
-				var s=lmax-lzji;
-				if (l<=0) {
-					l=0
-				};
-				
-				if(l>s){
-					l=s
-//					console.log(1)
-				};
-				
-				if (t<=0) {
-					t=0
-				};
-				//console.log(lmax)
-				//console.log(lzji)
-				//console.log($(zji).width())
-				
-				
-				$(zji).css({
-					left:l,
-					top:t
-				});
-			});
-			$(document).mouseup(function(e){//鼠标抬起，停止动作
-				//console.log(1)
-				$(document).off("mousemove mouseup")
-			})
+//构建方法一：
+Fly.prototype.FlyMove = function(){
+	//鼠标按下事件
+	var  self = this;
+	this.ele.mousedown(function(e){
+		//获取鼠标按下的点坐标
+		var l = e.offsetX;
+		var t = e.offsetY;
+		//console.log(l)
+		//console.log(t)
+		//固定点击位置,移动事件
+		$(document).mousemove(function(e){    //这一点犯了几次错了。注意！
+	//		console.log("haha")
+			var L = e.clientX-l;   //获取计算后的值
+			var T = e.clientY-t;
+			//console.log(L)
+			//console.log(T)
+			self.FlyMove2(L,T)
 		})
+		//点击完了，清除事件效果
+		$(document).mouseup(function(){
+			self.FlyMove3()
+		})
+	})
+}
+//构建方法二：
+
+Fly.prototype.FlyMove2 = function(L,T){
+	//判断，避免移动出屏幕外
+	var pmax =$("body").width();
+	var fmax =$(".Fly").width();
+	var jsuan =pmax-fmax;     //出错地方多，注意
+	//      console.log(jsuan)
+	if(L<0){//  判断左边
+		L=0;
+	}
+	if(L>jsuan){   //判断右边
+		L=jsuan;
 	}
 	
+	if(T<0){     //判断上边
+		T=0;
+	}
+	//获取值，替换改变定位的值
+	this.ele.css({
+		left:L,
+		top:T
+	})
+}
+//构建方法三：
+Fly.prototype.FlyMove3 = function(){
+	$(document).off("mousemove mouseup")
 }
 
+
+//飞机开火方法： 循环，不停的创造子弹
+Fly.prototype.kaihuo = function(){
+	//console.log(this)
+	var selfs =this
+	setInterval(function(){
+		
+		//console.log(this)   // windown 				//定出飞机的位置，0.2秒创建子弹，并且传值，给子弹
+		var a = selfs.ele.position().left + selfs.ele.width()/2-2;
+		//console.log(a)
+		var b = selfs.ele.position().top-18;
+		//console.log(b)
+		new ZiDan(a,b)
+	},200)
+	
+}

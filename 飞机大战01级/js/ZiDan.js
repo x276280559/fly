@@ -1,25 +1,24 @@
 
-//创建子弹
-function ZiDan(){
+//创建子弹      移动    循环多个
+
+function ZiDan(z,y){
 	//子弹属性
-	this.ele = $("<div></div>");
-	this.ele.addClass("ZiDan");
-	this.ele.appendTo("#self");
-}
-//子弹方法移动
-ZiDan.prototype.Zimove = function(){
-	//Fly.MoveSelf()
-	var lzji = $("#self").width();    //获取飞机宽
-	var tzji = $("#self").height();  //获取飞机高
-	var c = -(e.clientY-tzji);          //获取屏幕高 -飞机高
-	this.ele.css({
-		left:(lzji/2),
-		top:-10
+	this.elet =$("<div></div>");
+	this.elet.addClass("ZiDan");
+	this.elet.appendTo("#box");
+	//设置初始值
+	this.elet.css({
+		left:z,
+		top:y
 	})
-	
-	this.ele.animate({top:c},500)
+	this.ZiDanmove()
 }
-setInterval(function(){
-	new ZiDan().Zimove()
-	
-},50)
+//方法 移动--到顶部再清除子弹
+ZiDan.prototype.ZiDanmove = function(){
+	//console.log(this)
+	var st =this;
+	this.elet.animate({"top":0+"px"},1000,function(){
+		
+		st.elet.remove();   //清除自己
+	})
+}
