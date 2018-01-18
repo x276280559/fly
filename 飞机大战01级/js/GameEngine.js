@@ -14,10 +14,11 @@ var gameEngine = {
 		// 定时移动背景图片: 改变定位
 		var self = this
 		this.ele.animate({"background-position-y": "-230%"}, 10000, "linear", function() {
-			// 先让图片回到 100% 的位置
-			self.ele.css({"background-position-y": "0%"})
-			// 继续滚动
-			self.start()
+			console.log(1)
+//			// 先让图片回到 100% 的位置
+//			self.ele.css({"background-position-y": "0%"})
+//			// 继续滚动
+//			self.start()
 		})
 	}
 }

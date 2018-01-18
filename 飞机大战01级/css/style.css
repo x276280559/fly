@@ -13,4 +13,11 @@
 	background-position-y: 0%;  /* 先将图片挪动到顶部，以便于能够往下落 */
 }
 
-
+#self{
+	width:98px;height:112px;background:url(../img/img/me.png);
+	position: absolute;left:50%;bottom: 0px;
+}
+.ZiDan{
+	width:5px;height:10px;background:red;z-index: 10;border-radius: 50%;
+	position: absolute;left:0px;top:0px;
+}
