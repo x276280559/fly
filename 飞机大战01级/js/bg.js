@@ -16,26 +16,24 @@ var Bg ={
 		//飞机开火
   		this.Fly.kaihuo()
   		//创建敌人
-         var e1= new Enemy1("<div></div>")
-		 var e2= new Enemy2("<div></div>")
-		 var e3= new Enemy3("<div></div>")
+  		this.creatEnemy()
+        
+		
+	},
+	creatEnemy:function(){
 		setInterval(function(){
-			var mather ="";
-			var M =Math.floor(Math.random()*4);
-			//console.log(M)
-			switch (M){
-				case 1:
-					e1
-					break;
-				case 2:
-					e2
-					break;
-				case 3:
-					e3
-					break;
+			if(Math.random()<0.2){
+				new bigEnemy().Enmove()
+			}	
+			
+			if(Math.random()<0.6){
+				new midEnemy().Enmove()
 			}
 			
-		},10)
+			if(Math.random()<0.8){
+				new smallEnemy().Enmove()
+			}
+		},1000)
 	},
 
 	bgmove:function(){
@@ -43,7 +41,7 @@ var Bg ={
 		var self = this;
 		//console.log(self)
 		//用定位移动背景盒子
-		this.bgimg.animate({"background-position-y":"-230%"},5000,"linear",function(){      //linear
+		this.bgimg.animate({"background-position-y":"-230%"},10000,"linear",function(){      //linear
 			self.bgimg.css({"background-position-y":"0%"})
 			//回调反复走
 			self.bgmove()

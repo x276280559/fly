@@ -21,7 +21,7 @@ body{overflow: hidden;}
 	width:7px;height:18px;background:url(../img/img/bullet.png);
 	position: absolute;left:0px;top:0px;
 }
-.Enemy{
+.Enemy1{
 	width:59px;height:36px;background:url(../img/img/plain1.png);
 	position: absolute;left:0px;top:0px;
 }
