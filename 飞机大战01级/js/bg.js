@@ -2,11 +2,15 @@
 //游戏背景
 
 var Bg ={
+	
+	KeepEnemy:{sum :0},  	//储存页面的敌机	
+	KeepZiDan:{sum :0},    //储存子弹
 	//属性
 	bgimg:$("#box"),
 	
 	// 开始方法：
-	start:function(){  
+	start:function(){ 
+		
 		//移动背景盒子
 		this.bgmove()
 		//创建玩家飞机
