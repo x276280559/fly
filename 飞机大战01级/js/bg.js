@@ -4,7 +4,11 @@
 var Bg ={
 	
 	KeepEnemy:{sum :0},  	//储存页面的敌机	
-	KeepZiDan:{sum :0},    //储存子弹
+	KeepZiDan:{sum :0}, 
+	
+	
+	
+	//储存子弹
 	//属性
 	bgimg:$("#box"),
 	
@@ -21,13 +25,15 @@ var Bg ={
   		this.Fly.kaihuo()
   		//创建敌人
   		this.creatEnemy()
-        
+        //碰撞调用 遍历
+        this.touchs()
 		
 	},
 	creatEnemy:function(){
 		setInterval(function(){
 			if(Math.random()<0.2){
 				new bigEnemy().Enmove()
+				//console.log(1)
 			}	
 			
 			if(Math.random()<0.6){
@@ -51,5 +57,45 @@ var Bg ={
 			self.bgmove()
 		})  
 		
+	},
+	
+	touchs:function(){
+		setInterval(function(){    //定时检测是否碰撞
+			
+			var KeepEnemys =Bg.KeepEnemy;   //定义个变量，代替存储的子弹&敌飞机总数，方便遍历
+			var KeepZiDans =Bg.KeepZiDan;
+			//console.log(Bg.KeepEnemy)       //Object {sum: 6, undefined: smallEnemy}
+											   //  undefined??
+			//console.log(Bg.KeepZiDan)        //  有值
+		
+			//遍历，获取一个子弹和敌飞机
+			for (var k in KeepEnemys) {
+				
+				if(k=="sum"){   //去掉本身自带的那个属性
+					continue //跳过，                                           注意不能用return和break
+				}
+				var a = KeepEnemys[k]  //得到单一的一个战机
+				
+				//console.log(a)         //  有值
+			};
+			//遍历，获取一个子弹和敌飞机
+			for (var j in KeepZiDans) {
+				
+				if(j=="sum"){   //去掉本身自带的那个属性
+					continue
+				}
+				var b = KeepZiDans[j]  //得到单一的一个子弹
+				//console.log(b)                //  有值
+			};
+			//调用封装的common碰撞函数，检测！！！
+//			console.log(a.elem)
+//			console.log(b.elem)    // 没有，underfind？
+//			
+			if (isTouch(a.elem,b.elem)){
+				aleat("haha")
+			}
+			
+			
+		},10)
 	}
 }
