@@ -24,7 +24,7 @@ function Enemy(){
 		left:le,
 		top:-500
 	})
-}
+};
 //方法
 Enemy.prototype.Enmove = function(){
 	//console.log(this)
@@ -40,4 +40,26 @@ Enemy.prototype.Enmove = function(){
 	})
 	
 	
+};
+//定义个飞机与子弹碰撞掉血的方法
+Enemy.prototype.Blood = function(){
+	this.Hp--;
+	var self = this;
+	if(Hp<=0){  //没有血量，效果：飞机爆炸，子弹消失，玩家加分
+		
+		//定时器，快速切换爆炸图片
+		var i =0;
+		var timer=setInterval(function(){
+
+			self.elem.css("background",self.dieImg[i++])
+			  if(i>=self.dieImg.length){
+				clearInterval(timer); //关闭定时器
+				self.elem.remove();  //清除自己
+			}
+			  
+		},100)
+		
+	}
+	delete Bg.KeepEnemy[this.Sum]  ////到底部清除存储中的自己
 }
+
