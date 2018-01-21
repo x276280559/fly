@@ -45,7 +45,7 @@ Enemy.prototype.Enmove = function(){
 Enemy.prototype.Blood = function(){
 	this.Hp--;
 	var self = this;
-	if(Hp<=0){  //没有血量，效果：飞机爆炸，子弹消失，玩家加分
+	if(this.Hp<=0){  //没有血量，效果：飞机爆炸，子弹消失，玩家加分
 		
 		//定时器，快速切换爆炸图片
 		var i =0;

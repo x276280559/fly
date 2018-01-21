@@ -45,12 +45,13 @@ ZiDan.prototype.BloodZiDan = function(){
 		self.elet.css({  //爆炸图比子弹图大，所以要重新设置
 			"width":40,
 			"height":43
-			//判断图片
-			if(i>=tu.length){
-				clearInterval(timer)	// 清除定时器
-				self.elet.ZiDanmove();
-			}
-		})
+		})	
+		//判断图片
+		if(i>=tu.length){
+			clearInterval(timer)	// 清除定时器
+			self.elet.ZiDanmove();
+		}
+		
 	},30)
 	delete bg.KeepZiDan[this.sum];  //清除当前的存储子弹
 }

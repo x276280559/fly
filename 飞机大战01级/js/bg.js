@@ -93,7 +93,7 @@ var Bg ={
 					if (isTouch(a.elem,b.elet)){
 						//console.log(1)
 						a.Blood();  //掉血
-						//b.BloodZiDan();
+						b.BloodZiDan();
 					}
 				}
 			}
