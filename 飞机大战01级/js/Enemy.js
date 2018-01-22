@@ -43,6 +43,7 @@ Enemy.prototype.Enmove = function(){
 };
 //定义个飞机与子弹碰撞掉血的方法
 Enemy.prototype.Blood = function(){
+	//console.log(11)
 	this.Hp--;
 	var self = this;
 	if(this.Hp<=0){  //没有血量，效果：飞机爆炸，子弹消失，玩家加分
@@ -57,7 +58,7 @@ Enemy.prototype.Blood = function(){
 				self.elem.remove();  //清除自己
 			}
 			  
-		},100)
+		},10)
 		
 	}
 	delete Bg.KeepEnemy[this.Sum]  ////到底部清除存储中的自己
