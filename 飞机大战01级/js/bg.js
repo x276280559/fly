@@ -91,7 +91,7 @@ var Bg ={
 	//			console.log(b.elem)    // 没有，underfind？
 	//			
 					if (isTouch(a.elem,b.elet)){
-						//console.log(1)
+						
 						a.Blood();  //掉血
 						b.BloodZiDan();
 					}

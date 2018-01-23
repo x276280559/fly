@@ -51,7 +51,7 @@ Enemy.prototype.Blood = function(){
 		//定时器，快速切换爆炸图片
 		var i =0;
 		var timer=setInterval(function(){
-
+            
 			self.elem.css("background",self.dieImg[i++])
 			  if(i>=self.dieImg.length){
 				clearInterval(timer); //关闭定时器

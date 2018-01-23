@@ -10,12 +10,12 @@ function bigEnemy(){
 	
 	// 死亡切换的所有图片，数组形式存储！
 	this.dieImg = [		
-		"url(img/plain3_die1.png)",
-		"url(img/plain3_die2.png)",
-		"url(img/plain3_die3.png)",
-		"url(img/plain3_die4.png)",
-		"url(img/plain3_die5.png)",
-		"url(img/plain3_die6.png)"
+		"url(img/img/plain3_die1.png)",
+		"url(img/img/plain3_die2.png)",
+		"url(img/img/plain3_die3.png)",
+		"url(img/img/plain3_die4.png)",
+		"url(img/img/plain3_die5.png)",
+		"url(img/img/plain3_die6.png)"
 	]
 }
 //方法  移动

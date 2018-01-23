@@ -10,9 +10,9 @@ function smallEnemy(){
 	
 	// 死亡切换的所有图片，数组形式存储！
 	this.dieImg = [		
-		"url(img/plain1_die1.png)",
-		"url(img/plain1_die2.png)",
-		"url(img/plain1_die3.png)"
+		"url(img/img/plain1_die1.png)",
+		"url(img/img/plain1_die2.png)",
+		"url(img/img/plain1_die3.png)"
 	]
 }
 //方法  移动

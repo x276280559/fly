@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			ul{
+				list-style: none;
+			}
+			li{
+				width:100px;height:100px;background:red;
+				margin: 5px;float:left;
+			}
+			/*.nav1{
+				height:100px;
+			}*/
+			
+			/*.nav1{
+				overflow: hidden;
+			}*/
+			
+			
+			/*.nav2{
+				clear: both;
+			}*/
+			/*.a{
+				clear: both;
+			}*/
+			
+			ul::after{
+				content: "";
+				display: block;
+				clear:both;
+				height:0;
+				visibility:hidden;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<ul class="nav1">
+			<li>1a</li>
+			<li>2a</li>
+			<li>3a</li>
+			<li>4a</li>
+		</ul>
+		
+		<ul class="nav2">
+			<li>1s</li>
+			<li>2s</li>
+			<li>3s</li>
+			<li>4s</li>
+		</ul>
+	</body>
+</html>

@@ -36,23 +36,25 @@ ZiDan.prototype.BloodZiDan = function(){
 //	console.log(12)
 	var self = this;
 	var tu =[   //爆炸图
-		"url(img/die1.png)",
-		"url(img/die2.png)"
+		"url(img/img/die1.png)",
+		"url(img/img/die2.png)"
 	];
 	var i =0;
-	self.elet.sestop()	 ;//碰到就停止运动
+	self.elet.stop()	 ;//碰到就停止运动
 	var timer =setInterval(function(){
-		self.elet.css({"background":self.tu[i++]})
+		
+		self.elet.css({"background":tu[i++]})
 		self.elet.css({  //爆炸图比子弹图大，所以要重新设置
 			"width":40,
 			"height":43
 		})	
 		//判断图片
+		
 		if(i>=tu.length){
 			clearInterval(timer)	// 清除定时器
-			self.elet.ZiDanmove();
+			self.ZiDanmove();
 		}
 		
 	},30)
-	delete bg.KeepZiDan[this.sum];  //清除当前的存储子弹
+	delete Bg.KeepZiDan[this.sum];  //清除当前的存储子弹
 }
